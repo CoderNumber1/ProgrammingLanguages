@@ -11,10 +11,10 @@
 # Course: CMSC 4023 . Programming Languages
 # CRN: 12105
 # Project: p02
-# Due: September 30, 2013
+# Due: November 6, 2013
 # Project Account Number: tt069 
 #---------------------------------------------------------------------- 
-# Bind the subset Pascal Scanneer 
+# Bind the subset Pascal Scanner 
 #---------------------------------------------------------------------- 
 p02: p02par.o p02lex.o p02.o
 	g++ -o p02 p02par.o p02lex.o p02.o -lm -ll 
