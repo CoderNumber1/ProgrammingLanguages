@@ -1,0 +1,48 @@
+#-------------------------------------------------------------------------
+# File p02make creates executable file p02.
+#-------------------------------------------------------------------------
+# Team Identification Block
+# Author 1: Mr. Brett Davis
+# Student ID: *20294948
+# E-Mail: bdavis42@uco.edu
+# Author 2: Mr. Karl James
+# Student ID: *20317952
+# E-Mail: kjames21@uco.edu
+# Course: CMSC 4023 . Programming Languages
+# CRN: 12105
+# Project: p02
+# Due: September 30, 2013
+# Project Account Number: tt069 
+#---------------------------------------------------------------------- 
+# Bind the subset Pascal Scanneer 
+#---------------------------------------------------------------------- 
+p02: p02par.o p02lex.o p02.o
+	g++ -o p02 p02par.o p02lex.o p02.o -lm -ll 
+#---------------------------------------------------------------------- 
+# File p02.cpp processes command line arguments 
+#---------------------------------------------------------------------- 
+p02.o: p02.cpp p02lex.h 
+	g++ -c -g p02.cpp 
+#---------------------------------------------------------------------- 
+# File p02lex.cpp is the lex-generated scanner 
+#---------------------------------------------------------------------- 
+p02lex.cpp: p02lex.l p02lex.h p02tkn.h 
+	lex p02lex.l 
+	mv lex.yy.c p02lex.cpp 
+#--------------------------------------------------------------------- 
+#---------------------------------------------------------------------- 
+p02lex.o: p02lex.cpp p02lex.h
+	g++ -c -g p02lex.cpp 
+#---------------------------------------------------------------- 
+# Create files p02par.cpp and p02tkn.h from file p02par.y 
+#---------------------------------------------------------------- 
+p02tkn.h p02par.cpp: p02par.y 
+	yacc -d -v p02par.y 
+	mv y.tab.c p02par.cpp 
+	mv y.tab.h p02tkn.h 
+#---------------------------------------------------------------- 
+# Compile the parser p02par.y 
+#---------------------------------------------------------------- 
+p02par.o: p02par.cpp p02par.h 
+	g++ -c -g p02par.cpp 
+#----------------------------------------------------------------

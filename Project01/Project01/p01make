@@ -1,0 +1,33 @@
+#-------------------------------------------------------------------------
+# File p01make creates executable file p01.
+#-------------------------------------------------------------------------
+# Team Identification Block
+# Author 1: Mr. Brett Davis
+# Student ID: *20294948
+# E-Mail: bdavis42@uco.edu
+# Author 2: Mr. Karl James
+# Student ID: *20317952
+# E-Mail: kjames21@uco.edu
+# Course: CMSC 4023 . Programming Languages
+# CRN: 12105
+# Project: p01
+# Due: September 30, 2013
+# Project Account Number: tt069
+#-------------------------------------------------------------------------
+# Bind p03.o, Scan03.o 
+#-------------------------------------------------------------------------
+p01:	p01.o p01lex.o 
+	g++ -o p01 p01.o p01lex.o -ll
+#-------------------------------------------------------------------------
+# Compile p01.cpp
+#-------------------------------------------------------------------------
+p01.o:	p01.cpp p01lex.h p01tkn.h
+	g++ -g -c p01.cpp
+#-------------------------------------------------------------------------
+# Compile Scan03.l. First translate the lex specification, then compile
+#-------------------------------------------------------------------------
+p01lex.o:	p01lex.cpp p01lex.h p01tkn.h
+	g++ -g -c p01lex.cpp
+p01lex.cpp:	p01lex.l p01lex.h p01tkn.h
+	lex p01lex.l
+	mv lex.yy.c p01lex.cpp

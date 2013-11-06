@@ -1,0 +1,22 @@
+
+Token:Code=279 Name=   PROGRAM Line=   1 Col=   8 Spelling="program"
+Token:Code=262 Name=        ID Line=   1 Col=  12 Spelling="p00"
+Token:Code=301 Name=    LPAREN Line=   1 Col=  13 Spelling="("
+Token:Code=262 Name=        ID Line=   1 Col=  18 Spelling="input"
+identifier_list-> ID
+Token:Code=307 Name=     COMMA Line=   1 Col=  19 Spelling=","
+Token:Code=262 Name=        ID Line=   1 Col=  25 Spelling="output"
+identifier_list-> identifier_list, ID
+Token:Code=302 Name=    RPAREN Line=   1 Col=  26 Spelling=")"
+Token:Code=306 Name= SEMICOLON Line=   1 Col=  27 Spelling=";"
+Token:Code=285 Name=       VAR Line=   2 Col=   5 Spelling="var"
+Token:Code=262 Name=        ID Line=   2 Col=   7 Spelling="a"
+identifier_list-> ID
+Token:Code=305 Name=     COLON Line=   2 Col=   8 Spelling=":"
+Token:Code=273 Name=   INTEGER Line=   2 Col=  15 Spelling="integer"
+standard_type-> INTEGER
+type-> standard_type
+Token:Code=306 Name= SEMICOLON Line=   2 Col=  16 Spelling=";"
+declarations-> variable identifier_list : type ;
+Token:Code=265 Name=     BEGIN Line=   3 Col=   6 Spelling="begin"
+line(3) col(6) syntax error

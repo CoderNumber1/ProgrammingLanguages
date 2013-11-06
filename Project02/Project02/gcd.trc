@@ -1,0 +1,116 @@
+
+Token:Code=279 Name=   PROGRAM Line=   1 Col=   8 Spelling="program"
+Token:Code=262 Name=        ID Line=   1 Col=  16 Spelling="example"
+Token:Code=301 Name=    LPAREN Line=   1 Col=  17 Spelling="("
+Token:Code=262 Name=        ID Line=   1 Col=  22 Spelling="input"
+identifier_list-> ID
+Token:Code=307 Name=     COMMA Line=   1 Col=  23 Spelling=","
+Token:Code=262 Name=        ID Line=   1 Col=  30 Spelling="output"
+identifier_list-> identifier_list, ID
+Token:Code=302 Name=    RPAREN Line=   1 Col=  31 Spelling=")"
+Token:Code=306 Name= SEMICOLON Line=   1 Col=  32 Spelling=";"
+Token:Code=285 Name=       VAR Line=   2 Col=   6 Spelling="var"
+Token:Code=262 Name=        ID Line=   2 Col=   8 Spelling="x"
+identifier_list-> ID
+Token:Code=307 Name=     COMMA Line=   2 Col=   9 Spelling=","
+Token:Code=262 Name=        ID Line=   2 Col=  10 Spelling="y"
+identifier_list-> identifier_list, ID
+Token:Code=305 Name=     COLON Line=   2 Col=  11 Spelling=":"
+Token:Code=273 Name=   INTEGER Line=   2 Col=  18 Spelling="integer"
+standard_type-> INTEGER
+type-> standard_type
+Token:Code=306 Name= SEMICOLON Line=   2 Col=  19 Spelling=";"
+declarations-> variable identifier_list : type ;
+Token:Code=271 Name=  FUNCTION Line=   3 Col=  11 Spelling="function"
+Token:Code=262 Name=        ID Line=   3 Col=  15 Spelling="gcd"
+Token:Code=301 Name=    LPAREN Line=   3 Col=  16 Spelling="("
+Token:Code=262 Name=        ID Line=   3 Col=  17 Spelling="a"
+identifier_list-> ID
+Token:Code=307 Name=     COMMA Line=   3 Col=  18 Spelling=","
+Token:Code=262 Name=        ID Line=   3 Col=  19 Spelling="b"
+identifier_list-> identifier_list, ID
+Token:Code=305 Name=     COLON Line=   3 Col=  20 Spelling=":"
+Token:Code=273 Name=   INTEGER Line=   3 Col=  27 Spelling="integer"
+standard_type-> INTEGER
+type-> standard_type
+parameter_list-> identifier_list COLON  type
+Token:Code=302 Name=    RPAREN Line=   3 Col=  28 Spelling=")"
+arguments-> LPAREN parameter_list RPAREN
+Token:Code=305 Name=     COLON Line=   3 Col=  29 Spelling=":"
+Token:Code=273 Name=   INTEGER Line=   3 Col=  36 Spelling="integer"
+standard_type-> INTEGER
+Token:Code=306 Name= SEMICOLON Line=   3 Col=  37 Spelling=";"
+subprogram_head-> FUNCTION ID arguments COLON standard_type SEMICOLON
+Token:Code=265 Name=     BEGIN Line=   4 Col=   8 Spelling="begin"
+declarations-> empty set
+Token:Code=272 Name=        IF Line=   5 Col=   7 Spelling="if"
+Token:Code=262 Name=        ID Line=   5 Col=   9 Spelling="b"
+Token:Code=290 Name=       EQU Line=   5 Col=  10 Spelling="="
+factor-> ID
+term-> factor
+simple_expression-> term
+relop-> EQU
+Token:Code=288 Name=    INTLIT Line=   5 Col=  11 Spelling="0"
+factor-> INTLIT
+term-> factor
+Token:Code=282 Name=      THEN Line=   5 Col=  16 Spelling="then"
+simple_expression-> term
+expression-> simple_expression relop simple_expression
+Token:Code=262 Name=        ID Line=   5 Col=  20 Spelling="gcd"
+Token:Code=300 Name=  ASSIGNOP Line=   5 Col=  22 Spelling=":="
+variable-> ID
+Token:Code=262 Name=        ID Line=   5 Col=  23 Spelling="a"
+Token:Code=268 Name=      ELSE Line=   6 Col=   9 Spelling="else"
+factor-> ID
+term-> factor
+simple_expression-> term
+expression-> simple_expression
+statement-> variable ASSIGNOP expression
+Token:Code=262 Name=        ID Line=   6 Col=  13 Spelling="gcd"
+Token:Code=300 Name=  ASSIGNOP Line=   6 Col=  15 Spelling=":="
+variable-> ID
+Token:Code=262 Name=        ID Line=   6 Col=  18 Spelling="gcd"
+Token:Code=301 Name=    LPAREN Line=   6 Col=  19 Spelling="("
+Token:Code=262 Name=        ID Line=   6 Col=  20 Spelling="b"
+Token:Code=307 Name=     COMMA Line=   6 Col=  21 Spelling=","
+factor-> ID
+term-> factor
+simple_expression-> term
+expression-> simple_expression
+expression_list-> expression
+Token:Code=262 Name=        ID Line=   6 Col=  22 Spelling="a"
+Token:Code=274 Name=       MOD Line=   6 Col=  26 Spelling="mod"
+factor-> ID
+term-> factor
+mulop-> MOD
+Token:Code=262 Name=        ID Line=   6 Col=  28 Spelling="b"
+Token:Code=302 Name=    RPAREN Line=   6 Col=  29 Spelling=")"
+factor-> ID
+term-> term mulop factor
+simple_expression-> term
+expression-> simple_expression
+expression_list-> expression_list, expression
+factor-> ID LPAREN expression_list RPAREN
+term-> factor
+Token:Code=269 Name=       END Line=   7 Col=   6 Spelling="end"
+simple_expression-> term
+expression-> simple_expression
+statement-> variable ASSIGNOP expression
+statement-> IF expression THEN statement ELSE statement
+statement_list-> statement
+optional_statements-> statement_list
+compound_statement-> BEGAN optional_statements END
+subprogram_declarations-> subprogram_head declarations compound_statement
+Token:Code=306 Name= SEMICOLON Line=   7 Col=   7 Spelling=";"
+subprogram_declarations-> empty set
+subprogram_declarations-> subprogram_declarations subprogram_declaration ;
+Token:Code=265 Name=     BEGIN Line=   8 Col=   6 Spelling="begin"
+Token:Code=262 Name=        ID Line=   9 Col=   7 Spelling="read"
+Token:Code=301 Name=    LPAREN Line=   9 Col=   8 Spelling="("
+Token:Code=262 Name=        ID Line=   9 Col=   9 Spelling="x"
+Token:Code=307 Name=     COMMA Line=   9 Col=  10 Spelling=","
+factor-> ID
+term-> factor
+simple_expression-> term
+expression-> simple_expression
+line(9) col(10) syntax error
